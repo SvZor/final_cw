@@ -17,4 +17,31 @@ class Programm
         Console.WriteLine("[" + string.Join(", ", array2) + "] → [" + string.Join(", ", result2) + "]");
         Console.WriteLine("[" + string.Join(", ", array3) + "] → [" + string.join(", ", result3) + "]");
     }
-    
+    static string[] FilterArray(string[] inputArray)
+    {
+        // Подсчёт количества строк, длина которых меньше или равна 3 символам
+        int count = 0;
+        for (int i = 0; i < inputArray.Length; i++)
+        {
+            if (inputArray[i].Length <= 3)
+            {
+                count++;
+            }
+        }
+        // Создание нового массива нужного размера
+        string[] resultArray = new string[count];
+
+        // Заполнение нового массива строками, длина которых меньше или равна 3 символам
+        int index = 0;
+        for (int i = 0; i < inputArray.Length; i++)
+        {
+            if (inputArray[i].Length <= 3)
+            {
+                resultArray[index] = inputArray[i];
+                index++;
+            }
+        }
+
+        return resultArray;
+    }
+}
